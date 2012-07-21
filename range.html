@@ -1,0 +1,28 @@
+<html>
+<head id=head>
+
+<script src="coffee-script.js" type="text/javascript"></script>
+<script id=code src="range.coffee" type="text/coffeescript"></script>
+
+<script type="text/javascript">
+function reloadJs() {
+  var b
+  d = document.getElementById('code')
+  b = function() {
+    if ((d != null ? d.type : void 0) === "text/coffeescript") {
+      if (d.src)
+          return CoffeeScript.load(d.src, b);
+        CoffeeScript.run(d.innerHTML);
+        return b()
+    }
+  }();
+}
+  window.setInterval(reloadJs, 2000)
+
+</script>
+</head>
+<body >
+	<canvas id=canvas>
+
+</body>
+</html>
